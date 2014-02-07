@@ -1,11 +1,36 @@
 public class Interface
 {
 
-    private ArrayList<User> users;
-    
-
     public static void main(string[] args)
     {
+        Console c = System.console();
+        if (c == null)
+        {
+            System.err.println("No console");
+            System.exit(1);
+        }
+
+        String firstCommand = c.readLine("Commands:\n"
+            + "Users,\n"
+            + "Article,\n"
+            + "Community\n");
+        if (firstCommand.equals("Users"))
+        {
+            doUserActions(c);
+        } 
+        else if (firstCommand.equals("Articles"))
+        {
+            doArticleActions(c);
+        }
+        else if (firstCommand.equals("Community"))
+        {
+            doCommunityActions(c);
+        }
+        else
+        {
+            System.err.println("Cannot understand. Start over pls");
+            System.exit(1);
+        }
 
     }
 
@@ -24,5 +49,96 @@ public class Interface
 
     }
 
+    private void doUserActions(Console c)
+    {
+        String nextAction = c.readLine("Commands:\n"
+            + "printAll,\n"
+            + "printUsersInCommunity,\n"
+            + "findUser\n");
+        if (nextAction.equals("printAll"))
+        {
+            //printAll
+        } 
+        else if (nextAction.equals("printUsersInCommunity"))
+        {
+            String community = c.readLine("What community?");
+
+            //printComm
+        }
+        else if (nextAction.equals("findUser"))
+        {
+            String userName = c.readLine("What user?");
+
+            //doCommunityActions(c);
+        }
+        else
+        {
+            System.err.println("Cannot understand. Start over pls");
+            System.exit(1);
+        }
+    }
+
+    private void doArticleActions(Console c)
+    {
+        String nextAction = c.readLine("Commands:\n"
+            + "printAll,\n"
+            + "printArticlesInCommunity,\n"
+            + "mostFavorited\n");
+        if (nextAction.equals("printAll"))
+        {
+            //printAll
+        } 
+        else if (nextAction.equals("printArticlesInCommunity"))
+        {
+            String community = c.readLine("What community?");
+
+            //printComm
+        }
+        else if (nextAction.equals("mostFavorited"))
+        {
+            //doCommunityActions(c);
+        }
+        else
+        {
+            System.err.println("Cannot understand. Start over pls");
+            System.exit(1);
+        }
+    }
+
+    private void doCommunityActions(Console c)
+    {
+        String nextAction = c.readLine("Commands:\n"
+            + "printAll,\n"
+            + "findCommunity,\n"
+        if (nextAction.equals("printAll"))
+        {
+            //printAll
+        } 
+        else if (nextAction.equals("findCommunity"))
+        {
+            String community = c.readLine("What community?");
+            
+            //printComm
+        }
+        else
+        {
+            System.err.println("Cannot understand. Start over pls");
+            System.exit(1);
+        }
+
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
