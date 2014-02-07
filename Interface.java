@@ -1,6 +1,7 @@
 public class Interface
 {
 
+    
     public static void main(string[] args)
     {
 
@@ -18,7 +19,7 @@ public class Interface
 
     public void addCommunity(String topic)
     {
-        
+
     }
 
 
