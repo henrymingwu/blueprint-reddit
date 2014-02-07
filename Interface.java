@@ -51,6 +51,24 @@ public class Interface
             System.exit(1);
         }
 
+  class ArticleDateComparator implements Comparator<Article>{
+ 
+    @Override
+    public int compare(Article art1, Article art2) {
+        return (art1.getDate() > art2.getDate() ? -1 : (art1.getDate()==art2.getDate() ? 0 : 1));
+    }
+}
+  class ArticleFavoritesComparator implements Comparator<Article>{
+ 
+    @Override
+    public int compare(Article art1, Article art2) {
+        return (art1.getFavorites() > art2.getFavorites() ? -1 : (art1.getFavorites()==art2.getFavorites() ? 0 : 1));
+    }
+}
+
+    public void addArticle(String author, String title, String content, ArrayList<String> keywords, ArrayList<Community> communities)
+    {
+
     }
     
     public void printAllUsers() {
@@ -61,59 +79,69 @@ public class Interface
     
     public void printAllArticles() {
       for (Article article: allArticles) {
-        System.out.println(articles.getName()) {
+        System.out.println(articles.getTitle()) {
       } 
     
     }
+
+    public void printAllCommunities() {
+      for (Community comm: allCommunities) {
+        System.out.println(comm.getTopic());
+      }
+    }
     
     public void printAllArticlesFromUser(String username) {
-      User user = 
+      User user = userByName.get(username);
       if (user == null) {
+        System.out.println("No such username exists"); 
         return;
       }
-      System.out.print 
+      System.out.print("Here are the articles from user " + username);
       for (Article : user.articles) {
-        System. 
+        System.out.println(article.getTitle());
+      }
     } 
 
     public void printAllArticlesFromCommunity(String comm) {
-
+      Community community = communitiesByName.get(comm);
+      if (comm == null) {
+        System.out.println("No such commmunity exists"); 
+        return;
+      }
+      for (Article art : community.getArticles()) {
+        System.println(art.getTitle());
+      } 
+    }
+    
+    public void printAllUsersFromCommunity(String comm) {
+      Community community = communitiesByName.get(comm);
+      if (comm == null) {
+        System.out.println("No such commmunity exists"); 
+        return;
+      }
+      for (User user : community.getUsers()) {
+        System.println(user.getName());
+      } 
     }
  
     public void printArticlesFromPast(String days) {
-
+     Collections.sort(allArticles, new ArticleDateComparator());
+     for (int i = 0; i < day && i < allArticles.size(); i++) {
+       System.out.println(allArticles.get(i));
+     }
     }
 
     public printTopArticles(String num) {
-
+     Collections.sort(allArticles, new ArticleFavoritesComparator());
+     for (int i = 0; i < day && i < allArticles.size(); i++) {
+       System.out.println(allArticles.get(i));
+     }
     }
-    
-    public void printAllUsers() {
-      for (User user : allUsers) {
-        System.out.println(user.getName()) {
-      } 
-    } 
-    
-    public void printAllArticles() {
-      for (Article article: allArticles) {
-        System.out.println(articles.getName()) {
-      } 
-    
-    }
-    
-    public void printAllArticlesFromUser(String username) {
-      User user = 
-      if (user == null) {
-        return;
-      }
-      System.out.print 
-      for (Article : user.articles) {
-        System. 
-    } 
 
     public void addUser(String userName) 
     {
-
+      User user = new User(userName);
+      this.allUsers.add(user);
     }
 
     public void addCommunity(String topic)
