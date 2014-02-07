@@ -51,6 +51,7 @@ public class Interface
             System.err.println("Cannot understand. Start over pls");
             System.exit(1);
         }
+    }
 
   class ArticleDateComparator implements Comparator<Article>{
  
@@ -67,10 +68,10 @@ public class Interface
     }
 }
 
-    public void addArticle(String author, String title, String content, ArrayList<String> keywords, ArrayList<Community> communities)
-    {
+    // public void addArticle(String author, String title, String content, ArrayList<String> keywords, ArrayList<Community> communities)
+    // {
 
-    }
+    // }
     
     public static void printAllUsers() {
       for (User user : allUsers) {
@@ -93,13 +94,13 @@ public class Interface
     }
     
     public void printAllArticlesFromUser(String username) {
-      User user = userByName.get(username);
+      User user = usersByName.get(username);
       if (user == null) {
         System.out.println("No such username exists"); 
         return;
       }
       System.out.print("Here are the articles from user " + username);
-      for (Article : user.articles) {
+      for (Article article : user.getArticles()) {
         System.out.println(article.getTitle());
       }
     } 
@@ -111,7 +112,7 @@ public class Interface
         return;
       }
       for (Article art : community.getArticles()) {
-        System.println(art.getTitle());
+        System.out.println(art.getTitle());
       } 
     }
     
@@ -122,23 +123,23 @@ public class Interface
         return;
       }
       for (User user : community.getUsers()) {
-        System.println(user.getName());
+        System.out.println(user.getName());
       } 
     }
  
-    public void printArticlesFromPast(String days) {
-     Collections.sort(allArticles, new ArticleDateComparator());
-     for (int i = 0; i < day && i < allArticles.size(); i++) {
-       System.out.println(allArticles.get(i));
-     }
-    }
+    // public void printArticlesFromPast(String days) {
+    //  Collections.sort(allArticles, new ArticleDateComparator());
+    //  for (int i = 0; i < day && i < allArticles.size(); i++) {
+    //    System.out.println(allArticles.get(i));
+    //  }
+    // }
 
-    public printTopArticles(String num) {
-     Collections.sort(allArticles, new ArticleFavoritesComparator());
-     for (int i = 0; i < day && i < allArticles.size(); i++) {
-       System.out.println(allArticles.get(i));
-     }
-    }
+    // public void printTopArticles(String num) {
+    //  Collections.sort(allArticles, new ArticleFavoritesComparator());
+    //  for (int i = 0; i < day && i < allArticles.size(); i++) {
+    //    System.out.println(allArticles.get(i));
+    //  }
+    // }
 
     public void addUser(String userName) 
     {
