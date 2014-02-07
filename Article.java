@@ -3,15 +3,17 @@ import java.util.*;
 public class Article {
 
 private int favorites;
+private int date;
 private User user;
 private ArrayList<Community> communities;
 private ArrayList<String> keywords;
 private String title;
 private String content;
 
-public Article(int fav, User user, ArrayList<Community> comm, 
+public Article(int fav,int date, User user, ArrayList<Community> comm, 
   ArrayList<String> keys, String title, String content) {
   this.favorites = fav;
+  this.date = date;
   this.user = user;
   this.communities = comm;
   this.keywords = keys; 
@@ -21,6 +23,10 @@ public Article(int fav, User user, ArrayList<Community> comm,
 
 public int getFavorites() {
   return this.favorites;  
+}
+
+public int getDate() {
+  return this.date;  
 }
 
 public User getUser() {
@@ -45,6 +51,10 @@ public String getContent() {
 
 public int setFavorites(int num) {
   this.favorites = num; 
+}
+
+public int setDate(int date) {
+  this.date = date;
 }
 
 public User setUser(User user) {
