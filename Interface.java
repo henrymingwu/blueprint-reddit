@@ -3,7 +3,7 @@ import java.io.Console;
 
 public class Interface
 {
-  public int articleCounter;
+  public static int articleCounter;
   public static HashMap<String,User> usersByName;
   public static HashMap<String,Article> articlesByName;
   public static HashMap<String,Community> communitiesByName;
@@ -11,18 +11,25 @@ public class Interface
   public static ArrayList<User> allUsers;
   public static ArrayList<Community> allCommunities;
    
-    public Interface() {
-      articleCounter = 0;
-      usersByName = new HashMap<String,User>();
-      articlesByName = new HashMap<String,Article>();
-      communitiesByName = new HashMap<String,Community>();
-      allArticles = new ArrayList<Article>();
-      allUsers = new ArrayList<User>(); 
-      allCommunities = new ArrayList<Community>();
-    } 
+    // public Interface() {
+    //   articleCounter = 0;
+    //   usersByName = new HashMap<String,User>();
+    //   articlesByName = new HashMap<String,Article>();
+    //   communitiesByName = new HashMap<String,Community>();
+    //   allArticles = new ArrayList<Article>();
+    //   allUsers = new ArrayList<User>(); 
+    //   allCommunities = new ArrayList<Community>();
+    // } 
 
     public static void main(String[] args)
     {
+        articleCounter = 0;
+        usersByName = new HashMap<String,User>();
+        articlesByName = new HashMap<String,Article>();
+        communitiesByName = new HashMap<String,Community>();
+        allArticles = new ArrayList<Article>();
+        allUsers = new ArrayList<User>(); 
+        allCommunities = new ArrayList<Community>();
         Console c = System.console();
         if (c == null)
         {
@@ -68,11 +75,7 @@ public class Interface
     }
 }
 
-    // public void addArticle(String author, String title, String content, ArrayList<String> keywords, ArrayList<Community> communities)
-    // {
 
-    // }
-    
     public static void printAllUsers() {
       for (User user : allUsers) {
         System.out.println(user.getName());
@@ -87,13 +90,13 @@ public class Interface
     
     }
 
-    public void printAllCommunities() {
+    public static void printAllCommunities() {
       for (Community comm: allCommunities) {
         System.out.println(comm.getTopic());
       }
     }
     
-    public void printAllArticlesFromUser(String username) {
+    public static void printAllArticlesFromUser(String username) {
       User user = usersByName.get(username);
       if (user == null) {
         System.out.println("No such username exists"); 
@@ -105,7 +108,7 @@ public class Interface
       }
     } 
 
-    public void printAllArticlesFromCommunity(String comm) {
+    public static void printAllArticlesFromCommunity(String comm) {
       Community community = communitiesByName.get(comm);
       if (comm == null) {
         System.out.println("No such commmunity exists"); 
@@ -116,7 +119,7 @@ public class Interface
       } 
     }
     
-    public void printAllUsersFromCommunity(String comm) {
+    public static void printAllUsersFromCommunity(String comm) {
       Community community = communitiesByName.get(comm);
       if (comm == null) {
         System.out.println("No such commmunity exists"); 
@@ -141,10 +144,10 @@ public class Interface
     //  }
     // }
 
-    public void addUser(String userName) 
+    public static void addUser(String userName) 
     {
       User user = new User(userName);
-      this.allUsers.add(user);
+      allUsers.add(user);
     }
 
     public static void addCommunity(String topic)
@@ -157,7 +160,7 @@ public class Interface
         String nextAction = c.readLine("Commands:\n"
             + "printAll,\n"
             + "printUsersInCommunity,\n"
-            + "findUser\n");
+            + "addUser\n");
         if (nextAction.equals("printAll"))
         {
             printAllUsers();
@@ -166,13 +169,12 @@ public class Interface
         {
             String community = c.readLine("What community?");
 
-            //printComm
+            printAllUsersFromCommunity(community);
         }
-        else if (nextAction.equals("findUser"))
+        else if (nextAction.equals("addUser"))
         {
-            String userName = c.readLine("What user?");
-
-            //doCommunityActions(c);
+            String userName = c.readLine("Username?");
+            addUser(userName);
         }
         else
         {
@@ -189,17 +191,17 @@ public class Interface
             + "mostFavorited\n");
         if (nextAction.equals("printAll"))
         {
-            //printAll
+            printAllArticles();
         } 
         else if (nextAction.equals("printArticlesInCommunity"))
         {
             String community = c.readLine("What community?");
 
-            //printComm
+            printAllArticlesFromCommunity(community);
         }
         else if (nextAction.equals("mostFavorited"))
         {
-            //doCommunityActions(c);
+            //printpopular
         }
         else
         {
@@ -215,7 +217,7 @@ public class Interface
             + "findCommunity,\n");
         if (nextAction.equals("printAll"))
         {
-            //printAll
+            printAllCommunities();
         } 
         else if (nextAction.equals("findCommunity"))
         {
