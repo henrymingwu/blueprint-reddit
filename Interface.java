@@ -1,7 +1,9 @@
 public class Interface
 {
 
+    private ArrayList<User> users;
     
+
     public static void main(string[] args)
     {
 
