@@ -2,7 +2,7 @@ import java.util.*;
 
 public class User
 {
-    private string name;
+    private String name;
     private ArrayList<Article> articles;
 
     public User(String name)
@@ -10,7 +10,7 @@ public class User
         this.name = name;
     }
 
-    public static void main(string[] args)
+    public static void main(String[] args)
     {
         System.out.println("main");
     }
@@ -20,7 +20,7 @@ public class User
         return this.name;
     }
 
-    public void getArticles()
+    public ArrayList<Article> getArticles()
     {
         return this.articles;
     }

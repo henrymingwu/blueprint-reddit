@@ -5,7 +5,7 @@ public class Article {
 private int favorites;
 private int date;
 private User user;
-private ArrayList<Community> communities;
+private ArrayList<Community> community;
 private ArrayList<String> keywords;
 private String title;
 private String content;
@@ -15,7 +15,7 @@ public Article(int fav,int date, User user, ArrayList<Community> comm,
   this.favorites = fav;
   this.date = date;
   this.user = user;
-  this.communities = comm;
+  this.community = comm;
   this.keywords = keys; 
   this.title = title; 
   this.content = content;
@@ -34,7 +34,7 @@ public User getUser() {
 }
 
 public ArrayList<Community> getCommunity() {
-  return this.communities;
+  return this.community;
 }
 
 public ArrayList<String> getKeywords() {
@@ -49,30 +49,31 @@ public String getContent() {
   return this.content;
 }
 
-public int setFavorites(int num) {
+public void setFavorites(int num) {
   this.favorites = num; 
 }
 
-public int setDate(int date) {
+public void setDate(int date) {
   this.date = date;
 }
 
-public User setUser(User user) {
+public void setUser(User user) {
   this.user = user;
 }
 
-public ArrayList<Community> setCommunity(Community comm) {
+public void setCommunity(ArrayList<Community> comm) {
   this.community = comm;
 }
 
-public ArrayList<String> setKeywords(ArrayList<String> keys) {
+public void setKeywords(ArrayList<String> keys) {
   this.keywords = keys;
 }
 
-public String setTitle(String title) {
+public void setTitle(String title) {
   this.title = title;
 }
 
-public String setContent(String con) {
+public void setContent(String con) {
   this.content = con;
+}
 }

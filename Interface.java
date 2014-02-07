@@ -1,14 +1,15 @@
 import java.util.*;
+import java.io.Console;
 
 public class Interface
 {
   public int articleCounter;
-  public HashMap<String,User> usersByName;
-  public HashMap<String,Article> articlesByName;
-  public HashMap<String,Community> communitiesByName;
-  public ArrayList<Article> allArticles;
-  public ArrayList<User> allUsers;
-  public ArrayList<Community> allCommunities;
+  public static HashMap<String,User> usersByName;
+  public static HashMap<String,Article> articlesByName;
+  public static HashMap<String,Community> communitiesByName;
+  public static ArrayList<Article> allArticles;
+  public static ArrayList<User> allUsers;
+  public static ArrayList<Community> allCommunities;
    
     public Interface() {
       articleCounter = 0;
@@ -16,11 +17,11 @@ public class Interface
       articlesByName = new HashMap<String,Article>();
       communitiesByName = new HashMap<String,Community>();
       allArticles = new ArrayList<Article>();
-      allUsers = ArrayList<User>(); 
-      allCommunities = ArrayList<Community>();
+      allUsers = new ArrayList<User>(); 
+      allCommunities = new ArrayList<Community>();
     } 
 
-    public static void main(string[] args)
+    public static void main(String[] args)
     {
         Console c = System.console();
         if (c == null)
@@ -71,15 +72,16 @@ public class Interface
 
     }
     
-    public void printAllUsers() {
+    public static void printAllUsers() {
       for (User user : allUsers) {
-        System.out.println(user.getName()) {
+        System.out.println(user.getName());
       } 
     } 
     
-    public void printAllArticles() {
+    public static void printAllArticles() {
       for (Article article: allArticles) {
-        System.out.println(articles.getTitle()) {
+
+        System.out.println(article.getTitle());
       } 
     
     }
@@ -144,12 +146,12 @@ public class Interface
       this.allUsers.add(user);
     }
 
-    public void addCommunity(String topic)
+    public static void addCommunity(String topic)
     {
 
     }
     
-    private void doUserActions(Console c)
+    private static void doUserActions(Console c)
     {
         String nextAction = c.readLine("Commands:\n"
             + "printAll,\n"
@@ -157,7 +159,7 @@ public class Interface
             + "findUser\n");
         if (nextAction.equals("printAll"))
         {
-            //printAll
+            printAllUsers();
         } 
         else if (nextAction.equals("printUsersInCommunity"))
         {
@@ -178,7 +180,7 @@ public class Interface
         }
     }
 
-    private void doArticleActions(Console c)
+    private static void doArticleActions(Console c)
     {
         String nextAction = c.readLine("Commands:\n"
             + "printAll,\n"
@@ -205,11 +207,11 @@ public class Interface
         }
     }
 
-    private void doCommunityActions(Console c)
+    private static void doCommunityActions(Console c)
     {
         String nextAction = c.readLine("Commands:\n"
             + "printAll,\n"
-            + "findCommunity,\n"
+            + "findCommunity,\n");
         if (nextAction.equals("printAll"))
         {
             //printAll
