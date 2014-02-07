@@ -87,11 +87,29 @@ public class Interface
     public printTopArticles(String num) {
 
     }
-
-    public void addArticle(String author, String title, String content, ArrayList<String> keywords, ArrayList<Community> communities)
-    {
-
+    
+    public void printAllUsers() {
+      for (User user : allUsers) {
+        System.out.println(user.getName()) {
+      } 
+    } 
+    
+    public void printAllArticles() {
+      for (Article article: allArticles) {
+        System.out.println(articles.getName()) {
+      } 
+    
     }
+    
+    public void printAllArticlesFromUser(String username) {
+      User user = 
+      if (user == null) {
+        return;
+      }
+      System.out.print 
+      for (Article : user.articles) {
+        System. 
+    } 
 
     public void addUser(String userName) 
     {
@@ -187,8 +205,3 @@ public class Interface
     }
 
 }
-
-
-
-
-
