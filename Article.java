@@ -9,6 +9,16 @@ private ArrayList<String> keywords;
 private String title;
 private String content;
 
+public Article(int fav, User user, ArrayList<Community> comm, 
+  ArrayList<String> keys, String title, String content) {
+  this.favorites = fav;
+  this.user = user;
+  this.communities = comm;
+  this.keywords = keys; 
+  this.title = title; 
+  this.content = content;
+}
+
 public int getFavorites() {
   return this.favorites;  
 }
